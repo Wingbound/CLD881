@@ -1,0 +1,18 @@
+Starting simulation...
+Ms = 0.00650289  H_d = 0.519  H0 = 1.73  k_grad = 0  k_grad*nX = 0
+Reference: <Mx> = 0.00149862  G = 0  g = -0.0292082  g(no demag) = -0.0321686  Ms/H_ref = 0.0037589  u_max(centreline) = 0
+Initialisation complete. Starting main loop...
+Writing iter 0 ... phi_sum=2500 A_resid=0 H_max_delta=5.13398e-16
+Writing iter 10000 ... phi_sum=2500 A_resid=8.67362e-21 H_max_delta=2.46158e-05
+Writing iter 20000 ... phi_sum=2500 A_resid=4.33681e-21 H_max_delta=1.44079e-05
+Writing iter 30000 ... phi_sum=2500 A_resid=0 H_max_delta=4.66444e-07
+Writing iter 40000 ... phi_sum=2500 A_resid=0 H_max_delta=4.13246e-05
+Writing iter 50000 ... phi_sum=2500 A_resid=-6.77626e-23 H_max_delta=4.25687e-05
+Writing iter 60000 ... phi_sum=2500 A_resid=1.73472e-20 H_max_delta=3.53085e-06
+Writing iter 70000 ... phi_sum=2500 A_resid=1.30104e-20 H_max_delta=2.45662e-05
+Writing iter 80000 ... phi_sum=2500 A_resid=-1.73472e-20 H_max_delta=4.20584e-05
+Writing iter 90000 ... phi_sum=2500 A_resid=8.67362e-21 H_max_delta=1.14822e-05
+Writing iter 100000 ... phi_sum=2500 A_resid=1.73472e-20 H_max_delta=1.46602e-06
+Writing iter 110000 ... phi_sum=2500 A_resid=-2.60209e-20 H_max_delta=4.52671e-06
+Writing iter 120000 ... phi_sum=2500 A_resid=-4.33681e-21 H_max_delta=3.10877e-05
+RESULT xi0=7.5 tau_B=20 wtB=1.5 H_d=0.519 H0=1.73 k_grad=0 Fb=2e-07 eta_eff=0.0495643 g_sim=-0.0290471 g_ref=-0.0292082 g_ref_nodemag=-0.0321686 Ms_over_Href=0.0037589 avg_steps=3267

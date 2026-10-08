@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# C++
+*.o
+*.out
+*.obj
+*.exe
+*.so
+*.a
+build/
+bin/
+out/
+CMakeCache.txt
+CMakeFiles/
+
+# OS & Secrets
+.DS_Store
+.env
+
+# Simulation Data & Heavy Folders
+*.dat
+*.csv
+*.h5
+*.hdf5
+*.mat
+*.bin
+*.npy
+*.npz
+*.vtu
+*.vtk
+*.out
+results/
+output/
+outputs/
+data/
+simulations/
+CLD880/

@@ -1,0 +1,45 @@
+Starting simulation...
+PARAMS  droplet=1 dc_field=1 R=7 Ms=0.07 Fb=0 xi0=5 wtB=1.5 nSteps=80000
+OUTDIR  output_morphology/run_MS0.07_FB0_R7_xi5_wtB1.5_DC_b3_Ms0.070
+Initialisation complete. Starting main loop...
+Writing iter 0 ... phi_sum=164.267679 A_resid=3.622e-21 H_max_delta=3.8505e-16 h_iters=234 h_resid=9.998e-07 D=0.000000 ang=-45.000 bdy=0
+Writing iter 2000 ... phi_sum=164.267679 A_resid=1.112e-20 H_max_delta=7.4270e-03 h_iters=1 h_resid=2.891e-08 D=0.652210 ang=-0.000 bdy=0
+Writing iter 4000 ... phi_sum=164.267679 A_resid=1.629e-21 H_max_delta=8.0641e-03 h_iters=1 h_resid=2.718e-08 D=0.484662 ang=0.000 bdy=0
+Writing iter 6000 ... phi_sum=164.267679 A_resid=2.271e-21 H_max_delta=7.6846e-03 h_iters=1 h_resid=1.672e-08 D=0.537917 ang=-0.000 bdy=0
+Writing iter 8000 ... phi_sum=164.267679 A_resid=5.165e-21 H_max_delta=7.7507e-03 h_iters=1 h_resid=3.849e-09 D=0.516444 ang=-0.000 bdy=0
+Writing iter 10000 ... phi_sum=164.267679 A_resid=-3.271e-21 H_max_delta=7.7313e-03 h_iters=1 h_resid=5.246e-09 D=0.517724 ang=0.000 bdy=0
+Writing iter 12000 ... phi_sum=164.267679 A_resid=4.190e-21 H_max_delta=7.7318e-03 h_iters=1 h_resid=1.993e-09 D=0.517632 ang=0.000 bdy=0
+Writing iter 14000 ... phi_sum=164.267679 A_resid=5.264e-21 H_max_delta=7.7309e-03 h_iters=1 h_resid=2.422e-09 D=0.517727 ang=0.000 bdy=0
+Writing iter 16000 ... phi_sum=164.267679 A_resid=1.919e-21 H_max_delta=7.7298e-03 h_iters=1 h_resid=4.776e-10 D=0.517823 ang=-0.000 bdy=0
+Writing iter 18000 ... phi_sum=164.267679 A_resid=9.555e-21 H_max_delta=7.7297e-03 h_iters=1 h_resid=7.358e-10 D=0.517865 ang=-0.000 bdy=0
+Writing iter 20000 ... phi_sum=164.267679 A_resid=-2.429e-21 H_max_delta=7.7294e-03 h_iters=1 h_resid=3.945e-10 D=0.517909 ang=0.000 bdy=0
+Writing iter 22000 ... phi_sum=164.267679 A_resid=3.626e-21 H_max_delta=7.7293e-03 h_iters=1 h_resid=3.046e-10 D=0.517932 ang=0.000 bdy=0
+Writing iter 24000 ... phi_sum=164.267679 A_resid=-7.462e-21 H_max_delta=7.7292e-03 h_iters=1 h_resid=4.649e-10 D=0.517951 ang=0.000 bdy=0
+Writing iter 26000 ... phi_sum=164.267679 A_resid=2.285e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=4.592e-10 D=0.517962 ang=-0.000 bdy=0
+Writing iter 28000 ... phi_sum=164.267679 A_resid=-1.156e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=2.683e-10 D=0.517969 ang=0.000 bdy=0
+Writing iter 30000 ... phi_sum=164.267679 A_resid=-1.262e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=2.526e-10 D=0.517974 ang=0.000 bdy=0
+Writing iter 32000 ... phi_sum=164.267679 A_resid=2.401e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=2.602e-10 D=0.517978 ang=0.000 bdy=0
+Writing iter 34000 ... phi_sum=164.267679 A_resid=3.874e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=8.585e-11 D=0.517979 ang=0.000 bdy=0
+Writing iter 36000 ... phi_sum=164.267679 A_resid=-4.829e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.188e-10 D=0.517980 ang=-0.000 bdy=0
+Writing iter 38000 ... phi_sum=164.267679 A_resid=-4.234e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.497e-10 D=0.517981 ang=-0.000 bdy=0
+Writing iter 40000 ... phi_sum=164.267679 A_resid=-1.580e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=7.507e-11 D=0.517981 ang=-0.000 bdy=0
+Writing iter 42000 ... phi_sum=164.267679 A_resid=5.803e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=7.197e-11 D=0.517982 ang=-0.000 bdy=0
+Writing iter 44000 ... phi_sum=164.267679 A_resid=-1.516e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=8.607e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 46000 ... phi_sum=164.267679 A_resid=2.763e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=4.917e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 48000 ... phi_sum=164.267679 A_resid=1.312e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=3.416e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 50000 ... phi_sum=164.267679 A_resid=5.324e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=5.144e-11 D=0.517982 ang=-0.000 bdy=0
+Writing iter 52000 ... phi_sum=164.267679 A_resid=-1.864e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=2.777e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 54000 ... phi_sum=164.267679 A_resid=4.049e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.988e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 56000 ... phi_sum=164.267679 A_resid=1.765e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=2.969e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 58000 ... phi_sum=164.267679 A_resid=-5.805e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.789e-11 D=0.517982 ang=0.000 bdy=0
+Writing iter 60000 ... phi_sum=164.267679 A_resid=1.766e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.118e-11 D=0.517982 ang=-0.000 bdy=0
+Writing iter 62000 ... phi_sum=164.267679 A_resid=-7.676e-22 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.714e-11 D=0.517982 ang=-0.000 bdy=0
+Writing iter 64000 ... phi_sum=164.267679 A_resid=1.866e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.155e-11 D=0.517982 ang=-0.000 bdy=0
+Writing iter 66000 ... phi_sum=164.267679 A_resid=-1.620e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=5.685e-12 D=0.517982 ang=-0.000 bdy=0
+Writing iter 68000 ... phi_sum=164.267679 A_resid=7.814e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=9.970e-12 D=0.517982 ang=0.000 bdy=0
+Writing iter 70000 ... phi_sum=164.267679 A_resid=-1.310e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=6.947e-12 D=0.517982 ang=-0.000 bdy=0
+Writing iter 72000 ... phi_sum=164.267679 A_resid=1.507e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=3.188e-12 D=0.517982 ang=-0.000 bdy=0
+Writing iter 74000 ... phi_sum=164.267679 A_resid=1.479e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=5.679e-12 D=0.517982 ang=0.000 bdy=0
+Writing iter 76000 ... phi_sum=164.267679 A_resid=2.604e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=4.298e-12 D=0.517982 ang=0.000 bdy=0
+Writing iter 78000 ... phi_sum=164.267679 A_resid=-2.013e-20 H_max_delta=7.7291e-03 h_iters=1 h_resid=1.866e-12 D=0.517982 ang=-0.000 bdy=0
+Writing iter 80000 ... phi_sum=164.267679 A_resid=-4.594e-21 H_max_delta=7.7291e-03 h_iters=1 h_resid=3.231e-12 D=0.517982 ang=0.000 bdy=0

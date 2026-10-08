@@ -1,0 +1,23 @@
+Starting simulation...
+DROPLET TEST: H_lat=0.0123047  chi0=2.2  Ms=3.3  xi_e(max)=0.0246094  Bo_m=9.54793  R=25
+Ms = 3.3  H_d = 0.0123047  H0 = 0  k_grad = 0  k_grad*nX = 0
+Reference: <Mx> = 0  G = 0  g = -0  g(no demag) = -0  Ms/H_ref = 1.90751  u_max(centreline) = 0
+Initialisation complete. Starting main loop...
+Writing iter 0 ... phi_sum=1973.83 A_resid=3.1788e-23 H_max_delta=8.02184e-18
+Writing iter 2000 ... phi_sum=1973.83 A_resid=-5.30534e-23 H_max_delta=0.00364306
+Writing iter 4000 ... phi_sum=1973.83 A_resid=3.93566e-24 H_max_delta=0.00339873
+Writing iter 6000 ... phi_sum=1973.83 A_resid=-1.15435e-22 H_max_delta=0.0033135
+Writing iter 8000 ... phi_sum=1973.83 A_resid=-1.04205e-22 H_max_delta=0.00340015
+Writing iter 10000 ... phi_sum=1973.83 A_resid=4.66819e-22 H_max_delta=0.00337806
+Writing iter 12000 ... phi_sum=1973.83 A_resid=-5.24401e-23 H_max_delta=0.00332071
+Writing iter 14000 ... phi_sum=1973.83 A_resid=4.01896e-23 H_max_delta=0.00335253
+Writing iter 16000 ... phi_sum=1973.83 A_resid=-1.53094e-22 H_max_delta=0.00342379
+Writing iter 18000 ... phi_sum=1973.83 A_resid=-1.93647e-22 H_max_delta=0.00342704
+Writing iter 20000 ... phi_sum=1973.83 A_resid=-2.47051e-23 H_max_delta=0.00337573
+Writing iter 22000 ... phi_sum=1973.83 A_resid=-1.17518e-22 H_max_delta=0.00331766
+Writing iter 24000 ... phi_sum=1973.83 A_resid=-4.56835e-23 H_max_delta=0.00327082
+Writing iter 26000 ... phi_sum=1973.83 A_resid=1.52389e-23 H_max_delta=0.00327707
+Writing iter 28000 ... phi_sum=1973.83 A_resid=-9.76283e-23 H_max_delta=0.00327763
+Writing iter 30000 ... phi_sum=1973.83 A_resid=-2.08651e-22 H_max_delta=0.00331127
+Writing iter 32000 ... phi_sum=1973.83 A_resid=2.44702e-23 H_max_delta=0.00333835
+Writing iter 34000 ... phi_sum=1973.83 A_resid=9.94658e-23 H_max_delta=0.00334751

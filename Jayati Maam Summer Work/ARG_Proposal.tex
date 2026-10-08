@@ -1,0 +1,358 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\usepackage{graphicx}
+\usepackage{grffile} 
+\usepackage{amsmath, amssymb, bm}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{pgfgantt}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{subcaption}
+
+\titleformat{\section}{\Large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    \includegraphics[width=4cm]{"Mid Sem Presentation/IITDlogo.png"}\\[1cm]
+    
+    \LARGE \textbf{Advanced Research Grant (ARG) Full Proposal} \\
+    \vspace{1.5cm}
+    
+    \Large \textbf{Project Title: Multiphase Numerical Simulation and Experimental Validation of Viscosity Modulated Magnetically Driven Flow in Ferrofluids} \\
+    \vspace{2cm}
+    
+    \normalsize
+    \textbf{Principal Investigator:} \\
+    Prof. Jayati Sarkar \\
+    Associate Professor, Department of Chemical Engineering \\
+    Indian Institute of Technology, Delhi \\
+    \vspace{1cm}
+    
+    \textbf{Co-Investigator / Key Personnel:} \\
+    Snigdhadyut Dash (2022CH71482) \\
+    \vspace{1cm}
+    
+    \textbf{Host Institution:} \\
+    Department of Chemical Engineering, Indian Institute of Technology, Delhi \\
+    Hauz Khas, New Delhi - 110016 \\
+    
+    \vfill
+    \textbf{Date of Submission: \today}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Origin of the Proposal}
+The stable colloidal suspension of ferromagnetic or ferrimagnetic nanoparticles dispersed in a carrier liquid—commonly known as a ferrofluid—was first pioneered in the 1960s by NASA to control rocket fuel in microgravity. Unlike magneto-rheological fluids, which solidify under a magnetic field, ferrofluids retain their liquid state while exhibiting bulk magnetization. This unique combination of properties (saturation magnetization, fluid viscosity, and thermal stability) has led to diverse technological applications ranging from dynamic rotary sealing and vibration damping to highly targeted magnetic drug delivery and hyperthermia treatments in biomedical engineering.
+
+A particularly complex and fascinating phenomenon observed in these fluids is the "negative-viscosity" effect. First highlighted experimentally by Bacri and Perzynski (1995) and theoretically modeled by Shliomis (2002), the effect occurs when ferrofluids are subjected to an alternating magnetic field under a driving flow. The suspended magnetic nanoparticles experience a magnetic torque that forces them to actively rotate. This microscale spin-velocity coupling actively converts the applied magnetic energy into bulk fluid momentum, assisting the flow and effectively reducing the apparent macroscopic viscosity of the fluid.
+
+However, bridging these analytical soft-matter models with rigorous computational fluid dynamics (CFD) and confirming them through modern experimental techniques remains a critical challenge. Historically, long-wave approximations or macroscopic Finite Element Methods (FEM) have failed to capture the highly localized, high-asperity dynamic interfaces that form when ferrofluids are mixed in multiphase environments (e.g., droplets suspended in non-magnetic carrier liquids). 
+
+The genesis of this proposal lies in the urgent need to develop a highly accurate, mesoscale numerical framework. By extending the Lattice Boltzmann Method (LBM) with a conservative Phase-Field approach, we can directly simulate these complex magneto-hydrodynamic behaviors across immiscible phase boundaries. Building on this numerical foundation, this project proposes a novel experimental aim: overlaying a static spatial ramping magnetic field (to drive the bulk flow via the Kelvin force) with an orthogonal high-frequency oscillating magnetic field (to modulate the internal viscosity via active nanoparticle rotation). This aims to create a purely magnetically driven and viscosity-modulated flow, completely eliminating the need for a mechanical pressure gradient. The successful execution of this proposal holds immense potential for fabricating smart, valveless non-mechanical microfluidic pumps, active micro-shock absorbers, and highly controlled, non-invasive drug delivery systems.
+
+\section{State of Art Review in the Proposed Subject}
+
+\subsection{Review the Status and Highlight the Significance}
+
+\textbf{1. Scientific Rationale:}
+The fundamental mechanism driving the negative-viscosity effect relies on the interplay of characteristic relaxation times. The Brownian relaxation time ($\tau_B$) dictates how quickly nanoparticles align with an external field due to thermal fluctuations. When the frequency ($\omega$) of an alternating magnetic field approaches the resonance condition ($\omega\tau_B \approx 1$), the nanoparticles rotate perfectly in-phase with the local fluid vorticity ($\Omega$). This viscous torque, transferred from the particles back to the carrier fluid, creates a massive macroscopic flow enhancement, dropping the effective resistance.
+
+\textbf{2. International Status:}
+The foundational work on negative viscosity was established experimentally in France by Bacri and Perzynski (1995), utilizing pressure-driven Poiseuille flows through thin slits. Theoretical advancements followed shortly, most notably by Shliomis (2002), who generalized the rotational torque balances and derived the effective viscosity equations. Recently, the focus has shifted toward computational modeling. Lavrova et al. (2006) proposed decoupled algorithms to solve Maxwell and Navier-Stokes equations for stationary free surfaces, capturing Rosensweig instabilities. For time-dependent multiphase dynamics, Hu and Li (2018) developed a pioneering Phase-Field Lattice Boltzmann model, utilizing the conservative Allen-Cahn equation. However, their model was strictly focused on droplet deformation and did not incorporate the anti-symmetric active stress tensor required to model the dynamic viscosity reduction effect.
+
+\textbf{3. National Status:}
+In India, significant strides have been made in thermo-magnetic convection. Shivakumar et al. studied the effects of temperature gradients on Marangoni ferroconvection, while Nanjundappa et al. explored magnetic field-dependent viscosity in Bénard-Marangoni convection layers. Furthermore, Indian research groups have extensively modeled non-magnetic thin liquid films, observing that nanoparticle additions heavily suppress dewetting due to particle accumulation at interfaces. However, the exact intersection of these domains—specifically modeling the active viscosity reduction in multiphase environments using Lattice Boltzmann formulations—has largely remained unexplored locally.
+
+\textbf{4. Gaps in Current Research:}
+Current computational models either treat ferrofluids as single-phase macroscopic fluids (ignoring droplet dynamics and interface physics) or fail to couple the active torque generation terms into the multiphase models. Furthermore, the experimental literature is almost exclusively restricted to pressure-driven flows. There is a glaring gap regarding flows driven entirely by a magnetic field gradient (the Kelvin body force) while simultaneously undergoing active viscosity modulation.
+
+\subsection{Importance of the proposed project in terms of impact and innovation}
+This project bridges the crucial gap between theoretical soft-matter physics and applied engineering. By integrating the extended spin-velocity coupling force into a mesoscopic multiphase Phase-Field LBM framework, we will accurately capture complex interfacial dynamics, immiscible phase boundaries, and surface tension effects under localized magnetic forcing.
+
+The innovation of this project is two-fold:
+1. \textbf{Numerical Innovation:} Developing a coupled three-distribution LBM approach ($f_i, g_i, h_i$) that accurately simulates the anti-symmetric magnetic stress tensor alongside conservative multiphase tracking in 2D and 3D.
+2. \textbf{Experimental Innovation:} Demonstrating that valveless micro-pumps can be efficiently operated by utilizing a ramping magnetic field to physically drive the fluid and an orthogonal oscillating field to actively minimize flow resistance.
+
+Beyond academic publications, the resulting open-source LBM codebase will serve as a foundational tool for researchers designing micro-fluidic actuators.
+
+\subsection{Proof of Concept and Preliminary Data}
+Preliminary work by the PI and Co-PI has successfully established the computational foundation for this project using a D2Q9 Lattice Boltzmann geometry. 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{"End Sem Presentation/2D_LBM_vs_Theoretical.png"}
+        \caption{Validation of apparent viscosity reduction (LBM vs 2D Theoretical curve) tracking the predicted Shliomis minimum.}
+        \label{fig:visc_reduction}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{"End Sem Presentation/mag_driven_flow_profile.png"}
+        \caption{Zero pressure gradient flow profile driven entirely by Kelvin magnetic forcing gradient ($\nabla \mathbf{H}$).}
+        \label{fig:mag_flow}
+    \end{minipage}
+\end{figure}
+
+As shown in Figure \ref{fig:visc_reduction}, our foundational LBM solver accurately tracks the predicted viscosity minimum derived from Shliomis' model across varying resonance frequencies. Furthermore, we successfully achieved magnetically driven flow (zero pressure gradient) by mapping the Kelvin force gradient directly into the lattice body force vectors (Figure \ref{fig:mag_flow}). The multiphase boundaries were validated by demonstrating magnetic field deformations across susceptibility jumps.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{"End Sem Presentation/2D_neg_visc.png"}
+    \caption{Multiphase negative viscosity effect mapped across immiscible fluid boundaries within the LBM framework.}
+    \label{fig:2d_neg_visc}
+\end{figure}
+
+We have also validated the conservative Allen-Cahn Phase-Field interactions under strong magnetic fields. As the magnetic field strength increases, the phase-field droplet accurately elongates parallel to the magnetic field lines due to the jump in magnetic susceptibility across the interface.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{"End Sem Presentation/droplet_visualization_H_1.2.png"}
+        \caption{$H = 1.2$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{"End Sem Presentation/droplet_visualization_H_2.4.png"}
+        \caption{$H = 2.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{"End Sem Presentation/droplet_visualization_H_3.7.png"}
+        \caption{$H = 3.7$}
+    \end{subfigure}
+    \caption{Phase-field droplet elongation under increasing uniform magnetic field strengths, validating the $g_i$ and $h_i$ LBM solvers.}
+    \label{fig:droplets}
+\end{figure}
+
+\subsection{Project Location specifics}
+The computational and experimental work is not uniquely restricted to a specific geographical terrain but heavily relies on the High-Performance Computing (HPC) clusters and the advanced rheological/microfluidic laboratories housed specifically within the Department of Chemical Engineering at IIT Delhi.
+
+\newpage
+\section{Work Plan}
+
+\subsection{Methodology}
+
+The methodology encompasses highly rigorous numerical formulations (extending Phase-Field Lattice Boltzmann Methods) coupled with exact theoretical derivations and experimental validations. Because we aim to develop both 2D simulation frameworks and physical 3D macroscopic experiments, we must distinctly define the mathematical differences between the two geometries.
+
+\subsubsection{Theoretical Framework: Bacri, Shliomis, and Dimensionality}
+
+\textbf{1. The Bacri Active Torque Formulation:}
+The macroscopic motion of the ferrofluid is governed by the modified Navier-Stokes equation. The unique addition is the anti-symmetric magnetic stress tensor ($\tau_m$) caused by the misaligned magnetization ($\mathbf{M}$) and magnetic field ($\mathbf{H}$). Bacri defines this active body couple as:
+\begin{equation}
+    \mathbf{\Gamma} = \mu_0 (\mathbf{M} \times \mathbf{H})
+\end{equation}
+This couples directly into the momentum equation. In 3D, the complete macroscopic momentum equation is:
+\begin{equation}
+    \rho \frac{d\mathbf{v}}{dt} = -\nabla p + \eta \nabla^2 \mathbf{v} + \mu_0(\mathbf{M} \cdot \nabla)\mathbf{H} + \frac{1}{2}\nabla \times (\mu_0 \mathbf{M} \times \mathbf{H})
+\end{equation}
+The term $\mu_0(\mathbf{M} \cdot \nabla)\mathbf{H}$ represents the Kelvin force (which we will use to drive the fluid), while $\frac{1}{2}\nabla \times (\mu_0 \mathbf{M} \times \mathbf{H})$ represents the active rotational momentum transfer that modulates viscosity.
+
+\textbf{2. Shliomis Relaxation and 2D vs 3D Dimensionality:}
+To determine $\mathbf{M}$ under an oscillating field, we must solve the magnetization relaxation equations. However, the exact derivations change fundamentally between 3D physical models and 2D computational grids.
+
+\begin{table}[H]
+\centering
+\caption{Mathematical Comparison of 2D and 3D Ferrohydrodynamic Theories}
+\begin{tabular}{p{4.5cm} p{5cm} p{5cm}}
+\toprule
+\textbf{Property} & \textbf{3D Mathematical Model} & \textbf{2D Mathematical Model} \\
+\midrule
+\textbf{Geometric Assumption} & Spherical Nanoparticles & Infinite Cylinders / Planar Disks \\
+\textbf{Particle Volume/Area} & Volume $V = \frac{4}{3}\pi a^3$ & Area $A = \pi a^2$ \\
+\textbf{Brownian Relaxation Time} ($\tau_B$) & $\displaystyle \tau_B^{(3D)} = \frac{3\eta V}{kT}$ & $\displaystyle \tau_B^{(2D)} = \frac{2\eta A}{kT}$ \\
+\textbf{Viscous Torque Balance} & $6\eta\phi(\omega_p - \Omega) = \mathbf{M} \times \mathbf{H}$ & $4\eta\phi(\omega_p - \Omega) = \mathbf{M} \times \mathbf{H}$ \\
+\textbf{Langevin Function} ($L(\xi)$) & $\displaystyle \coth(\xi) - \frac{1}{\xi}$ \newline (Integration over spherical shell) & $\displaystyle \frac{I_1(\xi)}{I_0(\xi)}$ \newline (Integration over circular perimeter) \\
+\textbf{Low Field Susceptibility} ($\chi_0$) & $\displaystyle \frac{\mu_0 n m^2}{3kT}$ & $\displaystyle \frac{\mu_0 n m^2}{2kT}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+By solving the effective field perturbation equations under the \textbf{2D framework}, we arrive at the exact 2D frequency-dependent rotational viscosity parameter $g$:
+\begin{equation}
+    g = \frac{1}{2} \langle \xi_0 L(\xi_e) F \cos(\omega t) \rangle
+\end{equation}
+Where the effective change in apparent viscosity is $\Delta\eta = \eta\phi g$. In our LBM simulations, we rigorously enforce the 2D versions of these equations to ensure perfect parity between code and theory.
+
+\subsubsection{Advanced Phase-Field LBM Numerical Simulation Framework}
+To dynamically solve the modified Navier-Stokes equations across multiphase boundaries (e.g., droplets), we deploy a D2Q9 (2 Dimensions, 9 Discrete Velocities) Lattice Boltzmann Model heavily extending the phase-field architecture of Hu et al. (2018). We compute three separate lattice distribution functions ($f_i, g_i, h_i$) sequentially.
+
+\textbf{A. Macroscopic Hydrodynamics ($f_i$ distribution):}\\
+The fluid momentum is tracked by the density distribution function $f_i$. The discrete Boltzmann equation with the BGK collision operator is:
+\begin{equation}
+    f_i(\mathbf{x} + \mathbf{c}_i \Delta t, t + \Delta t) = f_i(\mathbf{x}, t) - \frac{1}{\tau_f} [f_i(\mathbf{x}, t) - f_i^{(eq)}(\mathbf{x}, t)] + S_i \Delta t
+\end{equation}
+The equilibrium distribution $f_i^{(eq)}$ is evaluated as:
+\begin{equation}
+    f_i^{(eq)} = \omega_i p + \rho c_s^2 \omega_i \left[ \frac{\mathbf{c}_i \cdot \mathbf{u}}{c_s^2} + \frac{(\mathbf{c}_i \cdot \mathbf{u})^2}{2c_s^4} - \frac{\mathbf{u}^2}{2c_s^2} \right]
+\end{equation}
+Where $\omega_i$ are the standard lattice weights and $c_s = 1/\sqrt{3}$. The total external force $\mathbf{F}$ (comprising the Kelvin force, the active magnetic torque, and interfacial surface tension) is integrated using the exact Guo forcing scheme $S_i$:
+\begin{equation}
+    S_i = \left( 1 - \frac{\Delta t}{2\tau_f} \right) \omega_i \left[ \frac{\mathbf{c}_i - \mathbf{u}}{c_s^2} + \frac{(\mathbf{c}_i \cdot \mathbf{u})\mathbf{c}_i}{c_s^4} \right] \cdot \mathbf{F}
+\end{equation}
+Macroscopic variables are safely recovered via $\rho = \sum f_i$ and $\rho \mathbf{u} = \sum \mathbf{c}_i f_i + \frac{\Delta t}{2}\mathbf{F}$.
+
+\textbf{B. Conservative Allen-Cahn Phase Field ($g_i$ distribution):}\\
+To strictly conserve mass across the diffuse droplet interfaces, we utilize a separate distribution $g_i$ governed by the conservative Allen-Cahn equation. The equilibrium distribution is defined as:
+\begin{equation}
+    g_i^{(eq)} = \omega_i \phi + \omega_i \frac{\mathbf{c}_i \cdot \mathbf{u}}{c_s^2} + \omega_i \frac{4 M_\phi}{\xi c_s^2} \phi(1-\phi) (\mathbf{c}_i \cdot \mathbf{n})
+\end{equation}
+where $\phi$ is the order parameter distinguishing the phases, $M_\phi$ is the mobility, and $\mathbf{n} = \nabla\phi / |\nabla\phi|$ is the normal vector to the interface. Surface tension forces acting on $f_i$ are calculated directly via the chemical potential $\mu_\phi = 4\beta\phi(\phi-1)(\phi-0.5) - \kappa\nabla^2\phi$.
+
+\textbf{C. Magnetic Potential Solver ($h_i$ distribution):}\\
+Because the magnetic susceptibility ($\chi$) differs between the ferrofluid and the carrier liquid, the magnetic field $\mathbf{H}$ deforms locally at the phase boundary. Assuming irrotational fields ($\mathbf{H} = -\nabla\psi$), the scalar potential $\psi$ obeys $\nabla \cdot (\mu\nabla\psi) = 0$. This is solved locally using the $h_i$ distribution:
+\begin{equation}
+    h_i(\mathbf{x} + \mathbf{c}_i \Delta t, t + \Delta t) = h_i(\mathbf{x}, t) - \frac{1}{\tau_m} [h_i(\mathbf{x}, t) - h_i^{(eq)}(\mathbf{x}, t)], \quad h_i^{(eq)} = \omega_i \psi
+\end{equation}
+The macroscopic magnetic field is then recovered as $\mathbf{H} = -\nabla\psi$.
+
+\subsubsection{Boundary Conditions \& Simulation Stages}
+Rigid \textbf{Half-Way Bounce-Back} boundary conditions enforce the no-slip condition on the channel walls. \textbf{Periodic} boundaries are imposed across the inlet/outlet. The codebase is developed progressively:
+\begin{itemize}
+    \item \textbf{Poiseuille Validation:} Perfecting the $f_i$ hydrodynamic solver against analytical parabolic curves.
+    \item \textbf{Integrated Bacri-Hu Framework:} Coupling the anti-symmetric active stress tensor into the $g_i$ phase-field dynamics to model active rotating droplets under alternating fields.
+    \item \textbf{Magnetically Driven Flow:} Eliminating the pressure gradient entirely and mapping the spatial $\nabla \mathbf{H}$ into the $S_i$ forcing vector to generate pure Kelvin-driven pumping.
+\end{itemize}
+
+\subsubsection{Novel Experimental Validation}
+We will design a \textbf{purely magnetically driven microfluidic system} to physically reconcile our 2D simulations. A custom microchannel will be placed within a highly controlled orthogonal electromagnet array (Helmholtz coils). A ramping (gradient) magnetic field will be applied longitudinally to induce the Kelvin body force, driving the fluid. Simultaneously, an alternating, transverse magnetic field (high frequency) will be superimposed to induce active nanoparticle rotation, modulating the apparent viscosity. Velocity profiles will be tracked via Micro-PIV and cross-verified against our Phase-Field LBM outputs to quantify theoretical agreement.
+
+\subsection{Suggested Plan of action for utilization of research outcome for social economic growth benefits expected from the project}
+The validated computational and experimental framework will directly inform the design of valveless, non-mechanical microfluidic pumps. These devices are highly sought after in the biomedical sector for the targeted delivery of sensitive therapeutic drugs (where mechanical impellers destroy cellular structures). Furthermore, mastering viscosity modulation via alternating fields offers direct pathways to designing highly responsive active shock absorbers for the aerospace and automotive industries, providing significant technological and economic benefits.
+
+\subsection{Environmental impact assessment and risk analysis}
+The massive computational simulations pose no environmental hazard. The physical experimental validations involve the standard synthesis of iron oxide ($\mathrm{Fe_3O_4}$) nanoparticles within a carrier oil or aqueous base. All chemical synthesis and disposal procedures will strictly adhere to the hazardous waste management protocols established by the IIT Delhi safety board. The resulting nanoparticles are inherently non-toxic and biocompatible, making the overall risk profile negligible.
+
+\subsection{Dissemination plan}
+Results will be continuously disseminated through publications in high-impact, peer-reviewed journals such as \textit{Journal of Fluid Mechanics}, \textit{Physical Review Fluids}, and \textit{Physics of Fluids}. We will present the evolving methodology at international conferences (e.g., APS Division of Fluid Dynamics). Additionally, the highly modular, MPI-parallelized C++ LBM codebase will be heavily documented and released open-source via GitHub to foster accelerated adoption by the global soft-matter simulation community.
+
+\subsection{Time Schedule of activities}
+\begin{center}
+\begin{ganttchart}[
+    x unit=0.65cm,
+    y unit title=0.5cm,
+    y unit chart=0.6cm,
+    vgrid,hgrid,
+    title label font=\bfseries\footnotesize,
+    bar label font=\footnotesize,
+    bar/.style={fill=blue!50},
+    bar height=0.6
+]{1}{12}
+\gantttitle{Project Timeline (Quarters - Total 3 Years)}{12} \\
+\gantttitlelist{1,...,12}{1} \\
+\ganttbar{Theoretical Refinements (2D/3D Eqs)}{1}{2} \\
+\ganttbar{Phase-Field LBM Dev. ($f_i, g_i, h_i$)}{2}{5} \\
+\ganttbar{Experimental Setup \& Calibration}{4}{6} \\
+\ganttbar{Execution of Modulated Flow Exp.}{6}{9} \\
+\ganttbar{Numerical/Experimental Reconciliation}{8}{10} \\
+\ganttbar{Data Analysis \& Publications}{10}{12}
+\end{ganttchart}
+\end{center}
+
+\subsection{Bibliography}
+\begin{enumerate}
+    \item Bacri, J.-C., \& Perzynski, R. (1995). \textit{"Negative-Viscosity" Effect in a Magnetic Fluid}. Physical Review Letters, 75(11), 2128-2131.
+    \item Shliomis, M. I. (2002). \textit{Effective viscosity of magnetic fluids}. Physical Review E, 64(6), 060501.
+    \item Hu, Y., \& Li, D. (2018). \textit{Phase-field-based lattice Boltzmann model for multiphase ferrofluid flows}. Physical Review E, 98, 033301.
+    \item Rosensweig, R. E. (1985). \textit{Ferrohydrodynamics}. Cambridge University Press.
+    \item Guo, Z., Zheng, C., \& Shi, B. (2002). \textit{Discrete lattice effects on the forcing term in the lattice Boltzmann method}. Physical Review E, 65(4), 046308.
+\end{enumerate}
+
+\newpage
+\section{Expertise}
+
+\subsection{Expertise available with the investigators in executing the project}
+\textbf{Prof. Jayati Sarkar (PI):} Prof. Sarkar has over 15 years of rigorous academic experience in the theoretical modeling of thin film dynamics, self-organization of complex fluids, and thermomagnetic convection. Her profound expertise in hydrodynamic stability and interfacial phenomena is critical for guiding the theoretical boundaries of the multiphase ferrofluid models.
+
+\textbf{Snigdhadyut Dash (Co-Investigator):} Mr. Dash possesses highly specialized technical expertise in implementing advanced multiphase LBM formulations in C++. He independently developed the preliminary D2Q9 Two-Fluid and Phase-Field solvers presented in the proof-of-concept, establishing his ability to execute the computational core of this proposal.
+
+\subsection{Summary of roles/responsibilities for all Investigators}
+\begin{tabular}{|p{0.5cm}|p{3.5cm}|p{6cm}|p{4.5cm}|}
+\hline
+\textbf{S.No} & \textbf{Name of Investigators} & \textbf{Roles/Responsibilities} & \textbf{Specific part of proposal} \\
+\hline
+1. & Prof. Jayati Sarkar (PI) & Project administration, theoretical validation of interfacial boundary conditions, guidance on microfluidic experimental design. & Theoretical derivations, Experimental Setup, Administrative Oversight. \\
+\hline
+2. & Snigdhadyut Dash (Co-PI) & Expanding the C++ LBM codebase for 3D and MPI-parallelization, running HPC simulations, conducting Micro-PIV measurements. & Phase-Field LBM Dev, HPC Execution, Numerical Reconciliation. \\
+\hline
+\end{tabular}
+
+\subsection{Key publications published by the Investigators}
+\begin{itemize}
+    \item \textit{(Representative high-impact publications regarding thin films, LBM, and fluid stability to be appended here in the final submission portal).}
+\end{itemize}
+
+\subsection{List of funded projects implemented/ being implemented}
+\begin{tabular}{|p{0.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\textbf{S.No} & \textbf{Project Title} & \textbf{Funding Agency} & \textbf{Budget} & \textbf{Duration} & \textbf{Status} & \textbf{Role} \\
+\hline
+1. & Study of self-organization of ferrofluidic-polymer thin film & DST-SERB (CRG) & Rs. 34,04,700 & 2020-2024 & Completed & PI \\
+\hline
+\end{tabular}
+
+\section{List of facilities available at host institute}
+
+\subsection{Infrastructural Facilities}
+\begin{tabular}{|p{1cm}|p{6cm}|p{6cm}|}
+\hline
+\textbf{Sr.No.} & \textbf{Infrastructural Facility} & \textbf{Yes/No/ Not required Full or sharing basis} \\
+\hline
+1. & Workshop Facility & Yes (Full) \\
+2. & Water \& Electricity & Yes (Full) \\
+3. & Laboratory Space/ Furniture & Yes (Full) \\
+4. & Power Generator & Yes (Sharing) \\
+5. & AC Room or AC & Yes (Full) \\
+6. & Telecommunication & Yes (Full) \\
+7. & Information facilities like Internet/Library & Yes (Full) \\
+8. & Computational facilities (HPC) & Yes (Sharing basis via IITD Central HPC) \\
+\hline
+\end{tabular}
+
+\subsection{Equipment available with the Institute for the project}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}|p{3.5cm}|}
+\hline
+\textbf{Equipment available with} & \textbf{Specific Name of Equipment} & \textbf{Model, Make \& year of purchase} & \textbf{Remarks} \\
+\hline
+PI's Department & Rheometer with Magneto-Rheological Cell & Anton Paar MCR 302 & Available for ferrofluid characterization \\
+PI's Department & Dynamic Light Scattering (DLS) & Malvern Zetasizer Nano & Available for nanoparticle sizing \\
+\hline
+\end{tabular}
+
+\section{Name and address of experts interested in the outcome}
+\begin{tabular}{|p{1cm}|p{4cm}|p{5cm}|p{4.5cm}|}
+\hline
+\textbf{S.No.} & \textbf{Name of Expert} & \textbf{Affiliation} & \textbf{Email} \\
+\hline
+1. & \textit{To be populated} & \textit{Relevant Institute} & \textit{example@institute.edu} \\
+\hline
+\end{tabular}
+
+\section{Current financial support}
+None specifically overlapping with the scope of this multiphase computational work.
+
+\section{Any other relevant information (Financial Details)}
+\textbf{Estimated Cost:} \textbf{Rs. 7,70,000} (Seven Lakhs Seventy Thousand Only) for a duration of 3 years.
+
+\textbf{Budget Justification Summary:}
+The budget is highly streamlined to maximize research output with minimal overhead. The project will be executed directly by the PI and Co-PI without a dedicated research scholar, eliminating manpower costs. Equipment allocations are scaled efficiently, requesting Rs. 2 Lakhs for a Custom Orthogonal Electromagnet Setup and Rs. 2 Lakhs for a standard GPU-Accelerated Workstation necessary for running the local Phase-Field LBM models before upscaling to HPC. Consumables (Rs. 2 Lakhs) and Travel/Contingency (Rs. 1 Lakh) support the rigorous experimental synthesis and necessary conference dissemination plans, rounded out by minimal institutional overheads (Rs. 70,000).
+
+\end{document}
